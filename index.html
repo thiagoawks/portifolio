@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiago Ferreira | Credit, Capital Markets & Data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            slate: {
+              850: '#111827',
+              900: '#0f172a',
+              950: '#020617',
+            },
+            blue: {
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0b1120;
+      background-image: radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(30, 58, 138, 0.15), transparent 45%);
+    }
+    .institutional-card {
+      background: rgba(17, 24, 39, 0.55);
+      border: 1px solid rgba(51, 65, 85, 0.65);
+      transition: all 0.25s ease;
+    }
+    .institutional-card:hover {
+      background: rgba(17, 24, 39, 0.85);
+      border-color: rgba(96, 165, 250, 0.5);
+      transform: translateY(-2px);
+    }
+    .company-logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background-color: white;
+      padding: 5px;
+      object-fit: contain;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+    }
+    .company-logo-fallback {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #1e3a8a;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      font-family: 'Playfair Display', serif;
+    }
+    .nav-link.active {
+      color: #ffffff;
+      border-left-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.08);
+    }
+  </style>
+</head>
+<body class="text-slate-300 font-sans antialiased selection:bg-blue-900/60 selection:text-blue-200">
+
+  <!-- Mobile Top Header -->
+  <header class="lg:hidden fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <div class="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-xs font-bold text-white">TF</div>
+      <span class="font-serif text-sm font-semibold tracking-wide text-white">THIAGO FERREIRA</span>
+    </div>
+    <a href="#contact" class="text-xs font-mono px-3 py-1.5 rounded border border-slate-700 bg-slate-900 text-slate-200">
+      Contact
+    </a>
+  </header>
+
+  <div class="flex min-h-screen">
+    
+    <!-- LEFT SIDEBAR (Estilo Gabriel Greco) -->
+    <aside class="hidden lg:flex fixed top-0 left-0 h-screen w-72 flex-col justify-between border-r border-slate-800/80 bg-slate-950/70 backdrop-blur-xl p-8 z-40">
+      <div class="space-y-8">
+        <!-- Identity -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+            <span class="font-mono text-xs uppercase tracking-widest text-slate-400">São Paulo, BR</span>
+          </div>
+          <h1 class="font-serif text-2xl font-bold text-white tracking-tight">Thiago Ferreira</h1>
+          <p class="text-xs font-mono text-blue-400 mt-1 uppercase tracking-wide">Credit &bull; Capital Markets &bull; Data</p>
+        </div>
+
+        <!-- Section Navigation -->
+        <nav class="space-y-1 font-mono text-xs">
+          <a href="#hero" class="nav-link block py-2.5 px-3 border-l-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-all rounded-r">
+            00 / OVERVIEW
+          </a>
+          <a href="#expertise" class="nav-link block py-2.5 px-3 border-l-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-all rounded-r">
+            01 / EXPERTISE
+          </a>
+          <a href="#experience" class="nav-link block py-2.5 px-3 border-l-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-all rounded-r">
+            02 / EXPERIENCE
+          </a>
+          <a href="#education" class="nav-link block py-2.5 px-3 border-l-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-all rounded-r">
+            03 / EDUCATION & SKILLS
+          </a>
+          <a href="#contact" class="nav-link block py-2.5 px-3 border-l-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-all rounded-r">
+            04 / CONNECT
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="space-y-4 pt-6 border-t border-slate-800/80 text-xs font-mono text-slate-400">
+        <div class="flex flex-col gap-1.5">
+          <span class="text-slate-500 text-[10px] uppercase tracking-wider">Accreditations</span>
+          <span class="text-slate-300 font-medium">&bull; ANBIMA CPA-20</span>
+          <span class="text-slate-300 font-medium">&bull; Economics (FECAP)</span>
+        </div>
+        <div class="pt-2">
+          <a href="https://www.linkedin.com/in/thiago-ferreira-2b626539a" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors">
+            LinkedIn Profile &nearr;
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="w-full lg:ml-72 px-6 sm:px-12 md:px-16 pt-24 lg:pt-16 pb-24 max-w-5xl">
+      
+      <!-- 00 / HERO -->
+      <section id="hero" class="mb-24 pt-4 scroll-mt-24">
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">CORPORATE CREDIT</span>
+            <span class="px-2.5 py-1 rounded bg-blue-950/60 border border-blue-800/60 text-blue-400 font-medium">CAPITAL MARKETS</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">SQL & PYTHON</span>
+          </div>
+
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white font-serif leading-tight">
+            Connecting Corporate Credit, Risk and Data Intelligence.
+          </h2>
+
+          <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-3xl">
+            Economics student and CPA-20 certified professional with a hands-on analytical background[cite: 4]. I bridge fundamental credit analysis (Balance Sheet, Income Statement, Cash Flow) and structured data engineering with Python and SQL[cite: 4], automating critical operational workflows and scaling FIDC compliance validation[cite: 4].
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#experience" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-blue-600 text-white font-semibold text-sm hover:bg-blue-500 transition-colors">
+              Explore Experience &darr;
+            </a>
+            <a href="mailto:thiagoferreira2205@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-slate-700 bg-slate-900/60 text-slate-300 font-mono text-sm hover:border-slate-500 hover:text-white transition-colors">
+              Send an Email[cite: 4]
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01 / EXPERTISE -->
+      <section id="expertise" class="mb-28 scroll-mt-24">
+        <div class="mb-10 pb-3 border-b border-slate-800">
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-400">01 / Focus Areas</span>
+          <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">Core Competencies</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="institutional-card p-6 rounded-xl">
+            <h4 class="text-lg font-serif font-bold text-white mb-2 pb-2 border-b border-slate-800">Corporate Credit & Risk</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Technical opinions based on Balance Sheet, Income Statement, and Cash Flow metrics for mid and large corporate counterparties[cite: 4].
+            </p>
+          </div>
+          <div class="institutional-card p-6 rounded-xl">
+            <h4 class="text-lg font-serif font-bold text-white mb-2 pb-2 border-b border-slate-800">Data Analytics & ETL</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Querying and sanitizing large financial datasets via SQL Server and BigQuery to resolve pipeline inconsistencies and optimize SLA[cite: 4].
+            </p>
+          </div>
+          <div class="institutional-card p-6 rounded-xl">
+            <h4 class="text-lg font-serif font-bold text-white mb-2 pb-2 border-b border-slate-800">Automation & Engines</h4>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Python scripts (Pandas/NumPy) for automated data treatment, credit engine monitoring, and FIDC policy framing[cite: 4, 5].
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / EXPERIENCE -->
+      <section id="experience" class="mb-28 scroll-mt-24">
+        <div class="mb-12 pb-3 border-b border-slate-800">
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-400">02 / Track Record</span>
+          <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">Professional Experience</h3>
+        </div>
+
+        <div class="space-y-12 border-l border-slate-800 ml-4 pl-7 sm:pl-9">
+          
+          <!-- Monee -->
+          <div class="relative group">
+            <span class="absolute -left-[37px] sm:-left-[45px] top-2 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900 group-hover:bg-blue-500 transition-colors"></span>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="hidden sm:block relative w-12 h-12 flex-shrink-0">
+                <div class="company-logo-fallback">M</div>
+                <img src="image_6fa8d8.png" alt="Monee Logo" class="company-logo-img" onerror="this.style.display='none'">
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">Junior Credit Associate[cite: 1]</h4>
+                    <span class="text-sm font-mono text-blue-400">Monee[cite: 1]</span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-500">Apr 2026 — Present[cite: 1]</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                  Operating in credit and financial structuring pipelines, delivering technical risk evaluations and borrower limits support[cite: 1].
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Farmtech -->
+          <div class="relative group">
+            <span class="absolute -left-[37px] sm:-left-[45px] top-2 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900 group-hover:bg-blue-500 transition-colors"></span>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="hidden sm:block relative w-12 h-12 flex-shrink-0">
+                <div class="company-logo-fallback">F</div>
+                <img src="https://www.google.com/s2/favicons?domain=farmtech.com.br&sz=128" alt="Farmtech Logo" class="company-logo-img" onerror="this.style.display='none'">
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">Agribusiness Credit Intern[cite: 4]</h4>
+                    <span class="text-sm font-mono text-slate-300">Farmtech[cite: 4]</span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-500">Jun 2025 — Nov 2025[cite: 4]</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2 mb-3">
+                  Verified Credit Engine decisions and ensured asset eligibility for the firm's FIDCs under risk mandate policies[cite: 4]. Built Python (Pandas) scripts for automated ingestion and treatment of economic groups data[cite: 4].
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Python (Pandas)</span>[cite: 4]
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">FIDCs</span>[cite: 4]
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Credit Engine</span>[cite: 4]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C6 Bank -->
+          <div class="relative group">
+            <span class="absolute -left-[37px] sm:-left-[45px] top-2 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900 group-hover:bg-blue-500 transition-colors"></span>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="hidden sm:block relative w-12 h-12 flex-shrink-0">
+                <div class="company-logo-fallback">C</div>
+                <img src="https://www.google.com/s2/favicons?domain=c6bank.com.br&sz=128" alt="C6 Bank Logo" class="company-logo-img" onerror="this.style.display='none'">
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">Corporate Credit Intern[cite: 4]</h4>
+                    <span class="text-sm font-mono text-slate-300">C6 Bank[cite: 4]</span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-500">Jul 2024 — Nov 2024[cite: 4]</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2 mb-3">
+                  Drafted financial credit reports by reviewing Balance Sheets, DRE, and Cash Flow metrics[cite: 4]. Leveraged SQL Server and BigQuery to spot registration irregularities and enhance queue prioritization speed for commercial desks[cite: 4].
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">SQL Server</span>[cite: 4]
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">BigQuery</span>[cite: 4]
+                  <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Financial Modeling</span>[cite: 5]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- dunnhumby -->
+          <div class="relative group">
+            <span class="absolute -left-[37px] sm:-left-[45px] top-2 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900 group-hover:bg-blue-500 transition-colors"></span>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="hidden sm:block relative w-12 h-12 flex-shrink-0">
+                <div class="company-logo-fallback">D</div>
+                <img src="https://www.google.com/s2/favicons?domain=dunnhumby.com&sz=128" alt="dunnhumby Logo" class="company-logo-img" onerror="this.style.display='none'">
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">Shopper Insights[cite: 2]</h4>
+                    <span class="text-sm font-mono text-slate-300">dunnhumby[cite: 2]</span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-500">Nov 2023 — Jun 2024[cite: 2]</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                  Delivered strategic retail data insights for multinational consumer goods brands (Heineken, Nissin, Monster), optimizing product mix and commercial negotiation leverage[cite: 2].
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empiricus -->
+          <div class="relative group">
+            <span class="absolute -left-[37px] sm:-left-[45px] top-2 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900 group-hover:bg-blue-500 transition-colors"></span>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="hidden sm:block relative w-12 h-12 flex-shrink-0">
+                <div class="company-logo-fallback">E</div>
+                <img src="https://www.google.com/s2/favicons?domain=empiricus.com.br&sz=128" alt="Empiricus Logo" class="company-logo-img" onerror="this.style.display='none'">
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">Junior Relationship Analyst[cite: 4]</h4>
+                    <span class="text-sm font-mono text-slate-300">Empiricus Investimentos[cite: 4]</span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-500">Dec 2022 — Jul 2023[cite: 4]</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                  Consultative investor support covering Fixed Income, Equities, Investment Funds, and Structured Notes (COEs)[cite: 4]. Promoted internally from intern following technical and service performance[cite: 5].
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 03 / EDUCATION & SKILLS -->
+      <section id="education" class="mb-28 scroll-mt-24">
+        <div class="mb-10 pb-3 border-b border-slate-800">
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-400">03 / Background</span>
+          <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">Education & Toolkit</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Education Column -->
+          <div class="space-y-4">
+            <div class="institutional-card p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-white font-serif">BSc in Economics[cite: 4]</h4>
+              <p class="text-sm font-mono text-blue-400 mt-1">FECAP[cite: 4]</p>
+              <span class="inline-block text-xs font-mono text-slate-400 mt-3 px-2.5 py-1 rounded bg-slate-900 border border-slate-800">
+                Expected Completion: 2026[cite: 4]
+              </span>
+            </div>
+
+            <div class="institutional-card p-5 rounded-xl border-l-4 border-l-blue-500">
+              <h5 class="text-sm font-bold text-white font-mono uppercase tracking-wider mb-2">Certifications</h5>
+              <ul class="text-sm text-slate-300 space-y-2">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> <strong>ANBIMA CPA-20</strong>[cite: 5]</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> <strong>First Certificate in English (FCE)</strong> &bull; Cambridge[cite: 5]</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-slate-500 rounded-full"></span> Credit & Risk Analysis &bull; FGV Online[cite: 5]</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-slate-500 rounded-full"></span> Python for Data Analysis &bull; Alura[cite: 5]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Skills Column -->
+          <div class="space-y-4">
+            <div class="institutional-card p-5 rounded-xl">
+              <h5 class="text-xs font-mono uppercase text-blue-400 font-semibold mb-3">Data & Languages</h5>
+              <div class="flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">SQL (Intermediate/Advanced)</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Python (Pandas, NumPy)</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">VBA (Excel)</span>[cite: 5]
+              </div>
+            </div>
+
+            <div class="institutional-card p-5 rounded-xl">
+              <h5 class="text-xs font-mono uppercase text-blue-400 font-semibold mb-3">Platforms & Ecosystem</h5>
+              <div class="flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">BigQuery</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">SQL Server</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Salesforce</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Bloomberg (Basic)</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">VS Code</span>[cite: 5]
+              </div>
+            </div>
+
+            <div class="institutional-card p-5 rounded-xl">
+              <h5 class="text-xs font-mono uppercase text-blue-400 font-semibold mb-3">Finance Domain</h5>
+              <div class="flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Financial Statements</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Credit Modeling</span>[cite: 5]
+                <span class="px-2.5 py-1 bg-slate-900 rounded border border-slate-800 text-slate-200">Financial Math</span>[cite: 5]
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / CONNECT -->
+      <section id="contact" class="scroll-mt-24">
+        <div class="institutional-card p-8 sm:p-12 rounded-2xl relative overflow-hidden">
+          <div class="max-w-2xl">
+            <span class="text-xs font-mono uppercase tracking-widest text-blue-400">04 / Networking</span>
+            <h3 class="text-3xl font-serif font-bold text-white mt-1 mb-3">Let's Connect</h3>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed mb-8">
+              Always open to discussing credit structures, debt capital markets, data automation in Python/SQL, or macroeconomic insights.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="mailto:thiagoferreira2205@gmail.com" class="px-6 py-3 rounded bg-blue-600 text-white font-semibold text-sm hover:bg-blue-500 transition-colors">
+                thiagoferreira2205@gmail.com[cite: 4]
+              </a>
+              <a href="https://www.linkedin.com/in/thiago-ferreira-2b626539a" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded border border-slate-700 bg-slate-900/60 text-slate-200 font-mono text-sm hover:border-slate-500 transition-colors">
+                LinkedIn Profile[cite: 4] &nearr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-20 pt-8 border-t border-slate-800/80 text-xs font-mono text-slate-500">
+        Thiago Ferreira &bull; São Paulo, Brazil &bull; 2026[cite: 4]
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Scrollspy Script para ativar o menu conforme o scroll -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
